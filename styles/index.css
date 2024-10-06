@@ -1,0 +1,500 @@
+@font-face {
+  font-family: "amalfi";
+  src: url('../font/amalfi_coast.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --black: #101010;
+  --white: #f2f2f2;
+  --main: #d7b7b4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--var(--black))
+}
+
+header {
+  background: url('../img/header.png') center/cover no-repeat;
+  width: 100dvw;
+  height: 100dvh;
+}
+
+header h1 {
+  display: none;
+}
+
+h2 {
+  font-size: 3rem;
+  font-family: "amalfi";
+  font-weight: 200;
+  color: var(--main)
+}
+
+.sub-header {
+  width: 55%;
+  margin: 0 auto;
+}
+
+.sub-header figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.sub-header figure img {
+  width: 10rem;
+}
+
+.langue {
+  display: flex;
+  justify-content: flex-end;
+  align-items: end;
+  gap: 20px;
+}
+
+.langue img{
+  width: 20px;
+}
+
+.langue li:first-child {
+ padding-right: 20px;
+ border-right: 1px solid var(--black);
+}
+
+.langue li a {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+
+}
+
+nav {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  color: var(--var
+  (--black));
+}
+
+nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 420px;
+  width: 1070px;
+  height: 1px;
+  background-color: var(--black);
+  z-index: 2;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 100px;
+  padding: 6px;
+  margin-top: 1%;
+}
+
+nav .menu li a {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: var(--black);
+  font-weight: 200;
+  text-decoration: none;
+  font-size: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Les items de menu, sauf le dernier, auront un séparateur */
+nav ul li:not(:last-child) {
+  position: relative;
+}
+
+/* Ajouter un séparateur aux items principaux, sauf les sous-menus */
+nav .menu li:not(:last-child):not(.submenu li)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 1px;
+  height: 30px;
+  background-color: var(--black);
+  z-index: 2;
+}
+
+nav .menu li .submenu {
+  position: absolute; 
+  top: 100%; 
+  opacity: 0;
+  z-index: -10;
+  transition: all 0.2s ease; 
+  display: block;
+}
+
+nav .menu li .submenu:first-child{
+  left: -90%!important;
+}
+
+nav .menu li .submenu:last-child {
+  left: -20%;
+}
+
+nav .menu li:hover .submenu {
+  opacity: 1;
+  z-index: 10; 
+  transition: all 0.2s ease; 
+  background: white;
+}
+
+nav .menu li .submenu {
+  background-color: var(--white); 
+  padding: 10px; 
+  padding-left: 30px; 
+  width: 300px;
+}
+
+nav .menu li .submenu li, nav .menu li .submenu li a{
+  font-size: 1.1rem;
+  text-transform: none;
+  padding: 10px;
+  letter-spacing: 0;
+}
+
+nav .menu li .submenu li::before {
+  content: "-"; 
+  margin-right: 10px;
+}
+
+.magiques {
+  display: block;
+  margin: 0 auto;
+  width: 52%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.magiques h3 {
+  font-size: 2.7rem;
+  text-transform: uppercase;
+  color: var(--main);
+  font-weight: 200;
+}
+
+.magiques p {
+  font-size: 1.4rem;
+  font-weight: 100;
+  color: var(--black);
+  font-weight: 200;
+  font-style: italic;
+  margin-top: 5px;
+}
+
+.inoubliable {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 610px;
+  background-image: url("../img/Createur_image.png");
+  background-size: cover;
+  background-position: center;
+  margin-top: 30px;
+}
+
+.inoubliable h3 {
+  font-size: 46px;
+  color: var(--white);
+  font-weight: 200;
+  margin-top: 100px;
+  letter-spacing: 2px;
+}
+
+.inoubliable h3 span {
+  font-family: "amalfi";
+}
+
+main {
+  color: var(--main);
+  padding: 50px;
+}
+
+main h2 {
+  margin-left: 20rem;
+}
+
+.presentation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  margin-bottom: 50px;
+}
+
+.presentation > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.presentation-text {
+  width: 100%;
+  max-width: 600px;
+}
+
+.presentation p {
+  font-size: 1.7rem;
+  text-wrap: wrap;
+  line-height: 1.5;
+  color: var(--black);
+  font-weight: 200;
+  text-align:justify;
+}
+
+.presentation button {
+  padding: 15px 55px;
+  color: var(--black);
+  border: 1px solid var(--black);
+  background-color: var(--white);
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-size: 23px;
+}
+
+.prestations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  margin-bottom: 50px;
+}
+
+.prestations a div {
+  width: 500px;
+  height: 450px;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  color: white; 
+  font-size: 24px; 
+  font-weight: bold;
+  text-align: center; 
+  position: relative;
+  z-index: 1; 
+  font-weight: 200;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.prestations a:first-child div {
+  background: url('../img/Ceremonie_image.jpg') center/cover no-repeat;
+}
+
+.prestations a:last-child div {
+  background: url('../img/Moonriverprod_image.png') center/cover no-repeat;
+}
+
+
+footer {
+  display: block;
+  background-color: #d7b7b4;
+  color: var(--white);
+  padding: 20px;
+}
+
+footer figure {
+  display: flex;
+  justify-content: center;
+}
+
+footer figure img {
+  width: 20%;
+}
+
+footer .contact {
+  margin: 0 auto;
+  width: 80%;
+  text-align: center;
+  margin-top: 2%;
+}
+
+footer .contact h3,
+a {
+  font-size: 20px;
+  font-weight: 200;
+}
+
+footer .contact a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+
+footer .socialmedia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 40px;
+}
+
+footer .socialmedia a{
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  color: var(--main);
+}
+
+footer .socialmedia img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: var(--white);
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+footer .adresse {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+footer .adresse h3 {
+  font-size: 1.1rem;
+  font-weight: 200;
+}
+
+footer .credits{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 100px;
+}
+
+footer .address {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+footer .credit, footer .credits a,footer .credits p {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.2rem;
+}
+
+@media screen and (max-width: 1440px)   {
+nav::before {
+  left: 170px;
+  width: 1090px;
+}
+}
+
+
+@media screen and (max-width: 1024px)   {
+  nav::before {
+    left: 20px;
+    width: 1000px;
+  }
+
+  h3 {
+    font-size: 3rem;
+    margin: 0;
+    text-align: center;
+  }
+
+  nav .menu li a {
+    font-size: 1.1rem;
+    margin: 0;
+  }
+
+  .prestations {
+    gap: 10px;
+  }
+
+  .langue li {
+    padding: 0;
+  }
+
+}
+
+
+@media screen and (max-width: 425px)  {
+  nav, .langue {
+    display: none;
+  }
+
+  .sub-header figure img {
+    width: 7rem;
+  }
+
+  .sub-header figure {
+    position: relative;
+  }
+
+  .sub-header figure::after {
+    content: "";
+    position: absolute;
+    top: 150px;
+    right: -95px;
+    width: 400px;
+    height: 1px;
+    background-color: var(--black);
+    z-index: 2;  
+  }
+  
+  .magiques h3 {
+    font-size: 1.4rem;
+  }
+
+  .magiques p {
+    font-size: 1rem;
+  }
+
+  .inoubliable {
+    width: 500vw;
+    height: 400px;
+    background-image: url("../img/Welcome.png");
+    background-position: center; 
+    background-size:cover; 
+    background-repeat: no-repeat;
+  }
+
+  .inoubliable h3{
+    font-size: 1.2rem;
+  }
+
+  .prestations a div {
+    width: 200px;
+    height: 250px;
+  }
+    
+
+  footer .credits {
+    flex-direction: column;
+    gap: 0;
+  }
+}

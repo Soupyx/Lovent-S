@@ -1,0 +1,297 @@
+@font-face {
+    font-family: "amalfi";
+    src: url('../font/amalfi_coast.ttf');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  :root {
+    --black: #101010;
+    --white: #f2f2f2;
+    --main: #d7b7b4;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    list-style: none;
+  }
+  
+  body {
+    overflow-x: hidden;
+  }
+  
+  a {
+    text-decoration: none;
+    color: var(--var(--black))
+  }
+  
+  header {
+    background: url('../img/header.png') center/cover no-repeat;
+    width: 100dvw;
+    height: 100dvh;
+  }
+  
+  header h1 {
+    display: none;
+  }
+  
+  h2 {
+    font-size: 3rem;
+    font-family: "amalfi";
+    font-weight: 200;
+    color: var(--main)
+  }
+  
+  .sub-header {
+    width: 55%;
+    margin: 0 auto;
+  }
+  
+  .sub-header figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+  }
+  
+  .sub-header figure img {
+    width: 10rem;
+  }
+  
+  .langue {
+    display: flex;
+    justify-content: flex-end;
+    align-items: end;
+    gap: 20px;
+  }
+  
+  .langue img{
+    width: 20px;
+  }
+  
+  .langue li:first-child {
+   padding-right: 20px;
+   border-right: 1px solid var(--black);
+  }
+  
+  .langue li a {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+  
+  }
+  
+  nav {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    color: var(--var
+    (--black));
+  }
+  
+  nav::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 420px;
+    width: 1070px;
+    height: 1px;
+    background-color: var(--black);
+    z-index: 2;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 100px;
+    padding: 6px;
+    margin-top: 1%;
+  }
+  
+  nav .menu li a {
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    color: var(--black);
+    font-weight: 200;
+    text-decoration: none;
+    font-size: 1.5rem;
+    width: 100%;
+    cursor: pointer;
+  }
+  
+  /* Les items de menu, sauf le dernier, auront un séparateur */
+  nav ul li:not(:last-child) {
+    position: relative;
+  }
+  
+  /* Ajouter un séparateur aux items principaux, sauf les sous-menus */
+  nav .menu li:not(:last-child):not(.submenu li)::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: -50px;
+    width: 1px;
+    height: 30px;
+    background-color: var(--black);
+    z-index: 2;
+  }
+  
+  nav .menu li .submenu {
+    position: absolute; 
+    top: 100%; 
+    opacity: 0;
+    z-index: -10;
+    transition: all 0.2s ease; 
+    display: block;
+  }
+  
+  nav .menu li .submenu:first-child{
+    left: -90%!important;
+  }
+  
+  nav .menu li .submenu:last-child {
+    left: -20%;
+  }
+  
+  nav .menu li:hover .submenu {
+    opacity: 1;
+    z-index: 10; 
+    transition: all 0.2s ease; 
+    background: white;
+  }
+  
+  nav .menu li .submenu {
+    background-color: var(--white); 
+    padding: 10px; 
+    padding-left: 30px; 
+    width: 300px;
+  }
+  
+  nav .menu li .submenu li, nav .menu li .submenu li a{
+    font-size: 1.1rem;
+    text-transform: none;
+    padding: 10px;
+    letter-spacing: 0;
+  }
+  
+  nav .menu li .submenu li::before {
+    content: "-"; 
+    margin-right: 10px;
+  }
+
+  .titre{
+    margin-left: 25%;
+    padding: 2%;
+  }
+
+
+
+.center {
+    display: block;
+    margin: 0 auto;
+    width: 52%;
+    text-align: center;
+}
+
+.center h3{
+    font-size: 40px;
+    color: black;
+    font-weight: 200;
+    padding: 2%;
+}
+
+.center p {
+    font-size: 22px;
+    font-weight: 200;
+}
+
+.histoireimg {
+    width: 100vw; /* Assure que l'image prend toute la largeur de la fenêtre */
+    height: auto; /* Conserve le ratio de l'image */
+    margin: 0; /* Supprime toutes les marges autour de l'image */
+    margin-top: 5%;
+    display: block; /* Pour éviter les espaces blancs en bas de l'image */
+}
+
+footer {
+    background-color: #d7b7b4;
+    color: white;
+    padding: 20px;
+}
+
+footer .logofooter {
+    display: flex;
+    justify-content: center;
+}
+
+footer .logofooter img {
+    width: 20%;
+}
+
+footer .contact {
+    display: block;
+    margin: 0 auto;
+    width: 80%;
+    text-align: center;
+    margin-top: 2%;
+}
+
+footer .contact h3,
+a {
+    font-size: 20px;
+    font-weight: 200;
+}
+
+footer .contact a {
+    color: white;
+    text-decoration: none;
+}
+
+footer .iconslinks {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    gap: 40px;
+}
+
+footer .iconslinks img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: white;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+footer .adresse {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+footer .adresse h3 {
+    font-size: 17px;
+    font-weight: 200;
+}
+
+footer .fin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+}
+
+a {
+    font-size: 15px;
+    font-weight: 200;
+}
+
+footer .fin a {
+    color: white;
+    text-decoration: none;
+}

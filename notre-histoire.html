@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <title>Notre histoire</title>
+  <link rel="stylesheet" href="styles/notre-histoire.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <h1 class="hidden">Histoire</h1>
+  </header>
+  <section class="sub-header">
+    <figure class="logo">
+      <img src="./img/LOVENTS.png" alt="Logo de Life's Events">
+    </figure> 
+
+    <ul class="langue">
+      <li>
+        <a href="">Fr <img src="node_modules/flag-icons/flags/1x1/fr.svg"></img>
+        </a>
+      </li>
+      <li>
+        <a href="">En <img src="node_modules/flag-icons/flags/1x1/us.svg"></img>
+        </a>
+      </li>
+    </ul>
+  </section>
+<nav>
+  <ul class="menu">
+    <li>
+      <a id="accueil-link" href="index.html">ACCUEIL</a>
+    </li>
+    <li>
+      <a id="apropos-link" class="cursornormal">À PROPOS</a>
+      <ul class="submenu">
+        <li><a href="nos-agences.html">Nos agences</a></li>
+        <li><a href="notre-histoire.html">Notre histoire</a></li>
+        <li><a href="nos-atouts.html">Nos atouts</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="">PRESTATIONS</a>
+      <ul class="submenu">
+        <li>
+          <a href="wedding-planner.html">Wedding Planner</a>
+        </li>
+        <li>
+          <a href="wedding-designer.html">Wedding Designer</a>
+        </li>
+      </ul>
+    </li>
+    <li>
+      <a href="https://www.instagram.com/lovents_by_lifesevents?igsh=N2xrc3ZrdXRyMDFt" target="_blank">
+        GALERIE
+      </a>
+    </li>
+    <li>
+      <a href="contact.html">CONTACT</a>
+    </li>
+  </ul>
+</nav>
+  <script>
+    // Obtenir le chemin de l'URL actuelle
+    const path = window.location.pathname;
+
+    // Vérifier si l'URL correspond à l'une des pages secondaires
+    if (path.includes('notre-equipe.html') || path.includes('notre-histoire.html') || path.includes('nos-atouts.html')) {
+      // Ajouter la classe 'active' au lien 'À PROPOS'
+      document.getElementById('apropos-link').classList.add('active');
+    }
+  </script>
+
+
+  <h2 class="titre">Notre histoire</h2>
+
+  <div class="center">
+    <h3>UNE NOUVELLE VISION</h3>
+      <p>Lovent'S est née d'une ambition claire : rendre l'organisation de mariage plus accessible tout en maintenant un haut niveau de qualité et de personnalisation.</p></br>
+      <p>Fondée en 2024 par Sandie Paradis, déjà à la tête de Life'S Events, cette nouvelle agence s'inscrit dans une dynamique d'innovation et de diversification.</p></br>
+      </p>
+      <p>Lovent'S se distingue par son approche réfléchie et adaptée aux besoins variés des couples, tout en restant fidèle à l'exigence et au savoir-faire qui ont fait le succès de Life'S Events.</p></br>
+      </p>
+      <p>Avec une équipe dédiée et une présence en expansion grâce à nos franchisés, Lovent'S s'efforce de rendre chaque mariage unique, simple et inoubliable.</p></br>
+      </p>
+      <p>Notre agence incarne notre volonté de poursuivre notre croissance tout en restant fidèle à notre philosophie.</p>
+  </div>
+
+  <img class="histoireimg" src="./img/Histoire_image.jpg" alt="Histoire">
+
+
+  <footer>
+    <br>
+    <div class="logofooter">
+      <img src="./img/LOVENTS BLANC.png" alt="Logo de Life's Events">
+    </div>
+    <div class="contact">
+      <h3>
+        <a href="tel:+330648480382">+33 6 48 48 03 82</a>
+    </h3>
+    
+      <a href="mailto:info@lifeevents.fr">info@lifeevents.fr</a>
+    </div>
+    <div class="iconslinks">
+      <a href="#"><img src="./icons/Instagram.svg" alt="Instagram"></a>
+      <a href="#"><img src="./icons/Tiktok.svg" alt="Tiktok"></a>
+      <a href="#"><img src="./icons/Facebook.svg" alt="Facebook"></a>
+    </div>
+    <div class="adresse">
+      <h3>2 rue Montaigne, 06400 Cannes</h3>
+    </div>
+    <div class="fin">
+      <a>©2024 par Life'S Events</a>
+      <a href="#">Politique de confidentialité</a>
+      <a href="#">Mentions légales</a>
+    </div>
+  </footer>
+
+
+</body>
