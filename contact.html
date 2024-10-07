@@ -5,14 +5,29 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="keywords" content="">
-  <title>Contact</title>
+  <meta name="description"
+    content="Contactez Lovent'S pour organiser un mariage unique et haut de gamme. Profitez de notre expertise en planification d'événements. Contactez-nous dès maintenant!" />
+  <meta name="keywords"
+    content="organisateur de mariage, contact mariage, Wedding Planner, Bordeaux, Paris, Nantes, Biarritz, mariage chic, cérémonie laïque, décoration de mariage" />
+  <meta property="og:title" content="Contactez Lovent'S - Votre Wedding Planner de Luxe" />
+  <meta property="og:description"
+    content="Contactez-nous pour des conseils sur l'organisation de votre mariage. Découvrez notre expertise en planification d'événements haut de gamme." />
+  <meta property="og:type" content="website" />
+  <meta name="robots" content="index, follow" />
+  <title>Contact - Lovent'S, Votre Wedding Planner de Luxe</title>
   <link rel="stylesheet" href="styles/contact.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap"
+    rel="stylesheet">
   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css"
+    integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -33,7 +48,7 @@
       </li>
     </ul>
   </section>
-  
+
   <nav>
     <ul class="menu">
       <li><a id="accueil-link" href="index.html">ACCUEIL</a></li>
@@ -46,13 +61,14 @@
         </ul>
       </li>
       <li>
-        <a href="">PRESTATIONS</a>
+        <a>PRESTATIONS</a>
         <ul class="submenu">
           <li><a href="wedding-planner.html">Wedding Planner</a></li>
           <li><a href="wedding-designer.html">Wedding Designer</a></li>
         </ul>
       </li>
-      <li><a href="https://www.instagram.com/lovents_by_lifesevents?igsh=N2xrc3ZrdXRyMDFt" target="_blank">GALERIE</a></li>
+      <li><a href="https://www.instagram.com/lovents_by_lifesevents?igsh=N2xrc3ZrdXRyMDFt" target="_blank">GALERIE</a>
+      </li>
       <li><a href="contact.html">CONTACT</a></li>
     </ul>
   </nav>
@@ -61,18 +77,20 @@
     <form id="contactForm" action="send_mail.php" method="post">
       <h2>Nous contacter</h2>
       <br><br>
-      
+
       <!-- CSRF Token -->
       <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
       <div class="form-row">
         <div class="form-group">
           <label for="prenom" style="margin-right: 75%;white-space: nowrap;">Prénom *</label>
-          <input type="text" id="prenom" name="prenom" required pattern="[A-Za-zÀ-ÿ '-]+" title="Veuillez entrer un prénom valide.">
+          <input type="text" id="prenom" name="prenom" required pattern="[A-Za-zÀ-ÿ '-]+"
+            title="Veuillez entrer un prénom valide.">
         </div>
         <div class="form-group">
           <label for="nom" style="margin-right: 60%;white-space: nowrap;">Nom de famille *</label>
-          <input type="text" id="nom" name="nom" required pattern="[A-Za-zÀ-ÿ '-]+" title="Veuillez entrer un nom valide.">
+          <input type="text" id="nom" name="nom" required pattern="[A-Za-zÀ-ÿ '-]+"
+            title="Veuillez entrer un nom valide.">
         </div>
       </div>
 
@@ -83,7 +101,8 @@
 
       <div class="espacement">
         <label for="telephone">Téléphone *</label>
-        <input type="tel" id="telephone" name="telephone" required pattern="^[0-9]{10}$" title="Veuillez entrer un numéro de téléphone valide (10 chiffres).">
+        <input type="tel" id="telephone" name="telephone" required pattern="^[0-9]{10}$"
+          title="Veuillez entrer un numéro de téléphone valide (10 chiffres).">
       </div>
 
       <div class="espacement">
@@ -100,24 +119,30 @@
   </main>
 
   <footer>
-    <br>
-    <div class="logofooter">
+    <figure>
       <img src="./img/LOVENTS BLANC.png" alt="Logo de Life's Events">
-    </div>
-    <div class="contact">
-      <h3><a href="tel:+330648480382">+33 6 48 48 03 82</a></h3>
-      <a href="mailto:info@lifeevents.fr">info@lifeevents.fr</a>
-    </div>
-    <div class="iconslinks">
-      <a href="#"><img src="./icons/Instagram.svg" alt="Instagram"></a>
-      <a href="#"><img src="./icons/Tiktok.svg" alt="Tiktok"></a>
-      <a href="#"><img src="./icons/Facebook.svg" alt="Facebook"></a>
-    </div>
-    <div class="adresse">
-      <h3>2 rue Montaigne, 06400 Cannes</h3>
-    </div>
-    <div class="fin">
-      <a>©2024 par Life'S Events</a>
+    </figure>
+    <ul class="contact">
+      <li>
+        <a href="tel:+330648480382">+33 6 48 48 03 82</a>
+      </li>
+
+      <li><a href="mailto:info@lifeevents.fr">info@lifeevents.fr</a>
+      </li>
+    </ul>
+    <ul class="socialmedia">
+      <li>
+        <a href="https://www.instagram.com/lovents_by_lifesevents?igsh=N2xrc3ZrdXRyMDFt" target="_blank"><i
+            class="fa-brands fa-instagram"></i></a>
+      </li>
+      <li>
+        <a href="https://www.tiktok.com/@lovents_by_lifesevents?_t=8qJgmagETCK&_r=1" target="_blank"><i
+            class="fa-brands fa-tiktok"></i></a>
+      </li>
+    </ul>
+    <p class="address">2 rue Montaigne, 06400 Cannes</p>
+    <div class="credits">
+      <p class="credit">©2024 par Lovent'S</p>
       <a href="#">Politique de confidentialité</a>
       <a href="#">Mentions légales</a>
     </div>
