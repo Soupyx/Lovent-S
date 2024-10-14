@@ -235,8 +235,12 @@ main {
   padding: 50px;
 }
 
-main h2 {
-  margin-left: 20rem;
+.presentation-title {
+  margin-left: 20rem; /* Ajustez cette valeur selon vos besoins */
+}
+
+.header2 {
+  margin-left: 20rem; /* Ajustez cette valeur selon vos besoins */
 }
 
 .presentation {
@@ -312,6 +316,10 @@ main h2 {
 .prestations a:last-child div {
   background: url('../img/Moonriverprod_image.png') center/cover no-repeat;
 }
+
+/* Ajout de marges supplémentaires pour .presentation-title et .header2 */
+
+
 
 
 footer {
@@ -442,13 +450,92 @@ nav::before {
 }
 
 
-@media screen and (max-width: 425px)  {
-  nav, .langue {
-    display: none;
+/* Media Query pour les petits écrans */
+@media screen and (max-width: 768px) {
+  .sub-header {
+    width: 90%; /* Ajustement de la largeur */
   }
 
   .sub-header figure img {
-    width: 7rem;
+    width: 8rem; /* Réduction de la taille du logo */
+  }
+
+  .langue {
+    justify-content: center; /* Centrage des langues */
+    padding: 10px 0; /* Ajout de padding pour espacement */
+  }
+
+  nav {
+    display: flex;
+    flex-direction: column; /* Passer à une colonne pour le menu */
+    align-items: center; /* Centrer les éléments */
+  }
+
+  nav ul {
+    flex-direction: column; /* Menu en colonne */
+    gap: 10px; /* Réduction de l'écart */
+    padding: 10px; /* Padding autour du menu */
+  }
+
+  nav .menu li a {
+    font-size: 1.2rem; /* Réduction de la taille de la police */
+  }
+
+  .magiques h3 {
+    font-size: 2rem; /* Ajustement de la taille du texte */
+  }
+
+  .magiques p {
+    font-size: 1rem; /* Ajustement de la taille du texte */
+  }
+
+  .presentation {
+    flex-direction: column; /* Passage à une colonne pour la présentation */
+    align-items: center; /* Centrer les éléments */
+    gap: 20px; /* Espacement entre les éléments */
+  }
+
+  .presentation-text {
+    padding: 0 20px; /* Padding pour éviter que le texte touche les bords */
+  }
+
+  .prestations {
+    flex-direction: column; /* Présentations en colonne */
+    gap: 20px; /* Espacement vertical */
+  }
+
+  .prestations a div {
+    width: 100%; /* Ajustement de la largeur */
+    height: 250px; /* Réduction de la hauteur */
+    font-size: 1.5rem; /* Ajustement de la taille du texte */
+  }
+
+  footer {
+    padding: 10px; /* Réduction du padding */
+  }
+
+  footer .contact, footer .socialmedia {
+    flex-direction: column; /* Disposition en colonne */
+    align-items: center; /* Centrer les éléments */
+  }
+
+  footer .address {
+    font-size: 1.2rem; /* Ajustement de la taille du texte */
+  }
+
+  footer .credits {
+    flex-direction: column; /* Disposition en colonne */
+    gap: 10px; /* Espacement entre les éléments */
+  }
+}
+
+@media screen and (max-width: 425px) {
+  nav, .langue {
+    display: none; /* Cacher le menu de navigation pour les petits écrans */
+  }
+
+  nav::before {
+    display: none; /* Masque la barre horizontale */
   }
 
   .sub-header figure {
@@ -465,36 +552,63 @@ nav::before {
     background-color: var(--black);
     z-index: 2;  
   }
-  
+
   .magiques h3 {
-    font-size: 1.4rem;
+    font-size: 1.4rem; /* Ajustement de la taille du texte */
   }
 
   .magiques p {
-    font-size: 1rem;
+    font-size: 1rem; /* Ajustement de la taille du texte */
   }
 
-  .inoubliable {
-    width: 500vw;
-    height: 400px;
-    background-image: url("../img/Welcome.png");
-    background-position: center; 
-    background-size:cover; 
-    background-repeat: no-repeat;
-  }
-
-  .inoubliable h3{
-    font-size: 1.2rem;
+  .presentation-text p {
+    font-size: 0.9rem; /* Ajustement de la taille du texte */
+    line-height: 1.4; /* Ajustement de l'espacement */
   }
 
   .prestations a div {
-    width: 200px;
-    height: 250px;
+    font-size: 1.5rem; /* Réduction de la taille de la police */
   }
-    
 
-  footer .credits {
-    flex-direction: column;
-    gap: 0;
+  footer figure img {
+    width: 50%; /* Réduction de la taille de l'image du logo dans le pied de page */
+  }
+
+  .presentation-title {
+    text-align: center; /* Centre le texte */
+    margin: 0; /* Supprime la marge */
+    padding: 0; /* Supprime le padding */
+  }
+
+  .header2 {
+    text-align: center; /* Centre le texte */
+    margin: 0; /* Supprime la marge */
+    padding: 0; /* Supprime le padding */
   }
 }
+
+/* Autres styles CSS ici... */
+
+@media screen and (min-width: 2560px) {
+  .presentation-title {
+    margin-left: 40rem; /* Ajustez cette valeur selon vos besoins */
+  }
+
+  .header2 {
+    margin-left: 40rem; /* Ajustez cette valeur selon vos besoins */
+  }
+
+  nav::before {
+    content: ""; /* Assurez-vous que le contenu est défini */
+    position: absolute; 
+    top: 0; /* Ajustez la position selon vos besoins */
+    left: 720px; /* Ajustez la position à gauche */
+    width: 1100px; /* Ajustez la largeur */
+    height: 1px; /* Épaisseur de la ligne */
+    background-color: var(--black); /* Couleur de la ligne */
+    z-index: 2; /* S'assurer qu'il est au-dessus des autres éléments */
+  }
+}
+
+/* Fin de votre CSS */
+

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://soupyx.github.io/Lovent-S/sitemap.xml
+Sitemap: https://soupyx.github.io/Lovent-S/sitemap.xml  

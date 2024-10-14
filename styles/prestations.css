@@ -236,6 +236,14 @@
     white-space: nowrap;
 }
 
+.titre h2{
+  font-weight: 200;
+}
+
+.titre .autre{
+  margin-left: 25%;
+}
+
 
 
 
@@ -384,3 +392,30 @@ footer .credit, footer .credits a,footer .credits p {
   font-weight: 300;
   font-size: 1.2rem;
 }
+
+@media screen and (min-width: 2560px) {
+   
+    .presentation-title {
+      margin-left: 40rem; /* Ajustez cette valeur selon vos besoins */
+    }
+
+    .titre .autre{
+      margin-left: 16.5em;
+    }
+  
+    .header2 {
+      margin-left: 40rem; /* Ajustez cette valeur selon vos besoins */
+    }
+  
+    nav::before {
+      content: ""; /* Assurez-vous que le contenu est défini */
+      position: absolute; 
+      top: 0; /* Ajustez la position selon vos besoins */
+      left: 720px; /* Ajustez la position à gauche */
+      width: 1100px; /* Ajustez la largeur */
+      height: 1px; /* Épaisseur de la ligne */
+      background-color: var(--black); /* Couleur de la ligne */
+      z-index: 2; /* S'assurer qu'il est au-dessus des autres éléments */
+    }
+}
+

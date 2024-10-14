@@ -29,10 +29,22 @@
   }
   
   
-  header h1 {
-    display: none;
+  
+  .sub-header {
+    width: 55%;
+    margin: 0 auto;
   }
   
+  .sub-header figure {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+  }
+  
+  .sub-header figure img {
+    width: 10rem;
+  }
   
   .langue {
     display: flex;
@@ -159,156 +171,71 @@
     font-weight: 400;
 }
 
-
-form {
-    width: 40%;
-    margin: 0 auto;
-    padding: 2% 3%;
-    text-align: left;
-    font-weight: 200;
-}
-
-/* Style des titres h1, h2, h3 */
-h1, h2, h3 {
+h1{
     text-align: center;
-}
-
-h2 {
-    font-size: 44px;
-    font-weight: 200;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
+    font-size: 2em;
+    font-weight: 200;
+    margin: 2%;
 }
 
-h3 {
-    font-size: 24px;
-    margin-top: 0;
-    font-weight: 100;
-}
-
-/* Style des labels et inputs */
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Style pour aligner Prénom et Nom l'un à côté de l'autre avec labels au-dessus */
-.form-row {
-    display: flex; /* Utiliser flex pour aligner horizontalement */
-    justify-content: space-between; /* Pour les espacer */
-    gap: 10px; /* Espacement entre les deux champs */
-}
-
-/* Ajuster les champs de saisie pour qu'ils occupent l'espace disponible */
-.form-group {
-    flex: 1; /* Permet à chaque groupe de prendre un espace égal */
-}
-
-/* Styles d'input */
-input[type="text"],
-input[type="email"],
-input[type="tel"] {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid black;
-    margin-bottom: 10px;
-    box-sizing: border-box;
-}
-
-/* Style des checkboxes */
-.form-group {
+.mention {
+    font-family: Arial, sans-serif;
+    line-height: 1;
+    margin: 0;
+    padding: 0;
     display: flex;
-    margin-bottom: 15px;
-    gap: 5px;
-}
+    justify-content: center;
+  }
+  
+  .container {
+    max-width: 60vw; /* Adjust this value as needed */
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+  }
+  
+  .section {
+    margin-bottom: 20px;
+  }
+  
+  h2 {
+    font-size: 26px;
+    font-weight: 200;
+    color: #333;
+    margin-bottom: 2%;
+    margin-top: 4%;
+  }
+  
+  p {
+    font-size: 14px;
+    color: #666;
+    padding: 1%;
+    letter-spacing: 2px;
+    line-height: 20px;
+  }
 
-.form-group label {
-    margin-right: 10px;
-}
+   p a {
+    color: inherit; /* Prend la couleur du parent (p) */
+    text-decoration: none; /* Enlève le soulignement par défaut */
+   }
+    
+  .container ul li{
+    list-style-type: disc; /* Définit le type de puce à un cercle plein */
+    line-height: 30px;
+    margin-left: 3%;
+    color: #666!important;
+    text-decoration: none;
+  }
 
-/* Champ texte pour "Autre (précisez)" */
+  .container ul li a{
+    text-decoration: underline;
+    color: var(--black);
+    font-weight: 200;
+    font-size: 14px;
+  }
 
-/* Bouton d'envoi */
-button[type="submit"] {
-  background-color: #403c3c;
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-  text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
 
-button[type="submit"]:hover {
-  background-color: red; /* Change la couleur de fond au survol */
-  color: #403c3c; /* Change la couleur du texte au survol */
-}
-
-.espacement{
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-
-/* Styles spécifiques pour le formulaire */
-
-/* Alignement à gauche pour les sections spécifiques */
-label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-/* Style pour aligner Prénom et Nom l'un à côté de l'autre avec labels à gauche des inputs */
-.form-row {
-    display: flex; /* Utiliser flex pour aligner horizontalement */
-    justify-content: flex-start; /* Aligner à gauche */
-    gap: 150px; /* Espacement entre les deux champs */
-}
-
-/* Ajuster les champs de saisie pour qu'ils soient moins larges */
-.form-group {
-    display: flex; /* Aligne le label et l'input horizontalement */
-    flex-direction: column; /* Aligne le label au-dessus de l'input */
-    flex: 1; /* Permet à chaque groupe de prendre un espace égal */
-    max-width: 280px; /* Ajustez cette valeur selon vos besoins */
-}
-
-/* Style pour centrer le loader */
-#loader {
-  display: none;
-  text-align: center;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  font-size: 18px;
-  color: #333;
-}
-
-/* Style pour le message de succès */
-#successMessage {
-  display: none;
-  text-align: center;
-  margin-top: 10px;
-  font-size: 18px;
-  color: green;
-}
-
-.sub-header {
-  width: 55%;
-  margin: 0 auto;
-}
-
-.sub-header figure {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-top: 1rem;
-}
-
-.sub-header figure img {
-  width: 10rem;
-}
 
 footer {
   display: block;
@@ -333,7 +260,7 @@ footer .contact {
   margin-top: 2%;
 }
 
-footer .contact h3,
+footer .contact h3
 a {
   font-size: 20px;
   font-weight: 200;
@@ -375,6 +302,7 @@ footer .adresse {
   justify-content: center;
   align-items: center;
   padding: 20px;
+  color: white
 }
 
 footer .adresse h3 {
@@ -393,6 +321,7 @@ footer .credits{
 footer .address {
   text-align: center;
   font-size: 1.5rem;
+  color: white;
 }
 
 footer .credit, footer .credits a,footer .credits p {

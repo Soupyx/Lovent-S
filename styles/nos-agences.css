@@ -598,3 +598,16 @@ footer {
         align-items: center; /* Center align */
     }
 }
+
+@media screen and (min-width: 2560px) {
+  nav::before {
+    content: ""; /* Assurez-vous que le contenu est défini */
+    position: absolute; 
+    top: 0; /* Ajustez la position selon vos besoins */
+    left: 720px; /* Ajustez la position à gauche */
+    width: 1100px; /* Ajustez la largeur */
+    height: 1px; /* Épaisseur de la ligne */
+    background-color: var(--black); /* Couleur de la ligne */
+    z-index: 2; /* S'assurer qu'il est au-dessus des autres éléments */
+  }
+}

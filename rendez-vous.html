@@ -15,20 +15,20 @@
   <meta property="og:type" content="website">
   <meta name="robots" content="index, follow">
   <title>Rendez-vous - Organisateur de Mariage Luxe | Lovents</title>
-
   <link rel="stylesheet" href="styles/formulaire.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap"
     rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css"
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css"
     integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <link rel="icon" href="./img/LOVENTS.png" type="image/png">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script> <!-- reCAPTCHA Script -->
 </head>
 
 <body>
@@ -37,7 +37,7 @@
   </header>
   <section class="sub-header">
     <figure class="logo">
-      <img src="./img/LOVENTS.png" alt="Logo de Life's Events">
+      <a href="index.html"><img src="./img/LOVENTS.png" alt="Logo de Life's Events"></a>
     </figure>
 
     <ul class="langue">
@@ -90,11 +90,10 @@
   </script>
 
   <main>
-    <form id="contactForm" action="send_mail.php" method="post">
+    <form id="contactForm" action="#" method="post" onsubmit="return validateForm()">
+
       <h2>Contactez-nous</h2>
       <h3 style="text-align: center;">Veuillez remplir le formulaire ci-dessous.</h3>
-
-      <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
 
       <label for="prenom">Prénom *</label>
       <input type="text" id="prenom" name="prenom" required pattern="[A-Za-zÀ-ÿ '-]+"
@@ -110,58 +109,64 @@
       <input type="tel" id="telephone" name="telephone" required pattern="[0-9]{10}"
         title="Veuillez entrer un numéro de téléphone valide (10 chiffres).">
 
-      <h2 style="text-align: start;text-transform:initial;font-size: 20px;">Choix de la prestation *</h2>
+        <h2 style="text-align: start; text-transform: initial; font-size: 20px;">Choix de la prestation *</h2>
+        <div class="form-group">
+          <input type="checkbox" id="organisation_totale" name="prestation" value="Organisation totale" onclick="updatePrestationStyles()">
+          <label for="organisation_totale">Organisation totale</label>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="organisation_partielle" name="prestation" value="Organisation partielle" onclick="updatePrestationStyles()">
+          <label for="organisation_partielle">Organisation partielle</label>
+        </div>
+        <div class="form-group">
+          <input type="checkbox" id="coordination_jour_j" name="prestation" value="Coordination du Jour J" onclick="updatePrestationStyles()">
+          <label for="coordination_jour_j">Coordination du Jour J</label>
+        </div>
+        
+      <br />
       <div class="form-group">
-        <input type="checkbox" id="organisation_totale" name="prestation[]" value="Organisation totale">
-        <label for="organisation_totale">Organisation totale</label>
+        <input type="checkbox" id="dispo_rappel" name="rappel" value="Être rappelé(e)">
+        <label style="text-transform:initial;font-size: 20px;" for="dispo_rappel">Être rappelé(e)</label>
       </div>
-      <div class="form-group">
-        <input type="checkbox" id="organisation_partielle" name="prestation[]" value="Organisation partielle">
-        <label for="organisation_partielle">Organisation partielle</label>
-      </div>
-      <div class="form-group">
-        <input type="checkbox" id="coordination_jour_j" name="prestation[]" value="Coordination du Jour J">
-        <label for="coordination_jour_j">Coordination du Jour J</label>
-      </div>
-      <div class="form-group">
-        <input type="checkbox" id="dispo_10_12" name="rappel" value="Être rappelé(e)">
-        <label style="text-transform:initial;font-size: 20px;" for="dispo_10_12">Être rappelé(e)</label>
-      </div>
+
 
       <div style="margin-left: 6.5%;">
         <h3>Vos disponibilités</h3>
         <div class="form-group">
-          <input type="checkbox" id="dispo_10_12" name="disponibilites[]" value="10h00 et 12h00">
-          <label for="dispo_10_12">10h00 et 12h00</label>
+          <input type="checkbox" id="dispo_10_12" name="disponibilites[]" value="10h00 et 12h00" disabled>
+          <label for="dispo_10_12" class="disabled-label">10h00 et 12h00</label>
         </div>
         <div class="form-group">
-          <input type="checkbox" id="dispo_12_14" name="disponibilites[]" value="12h00 et 14h00">
-          <label for="dispo_12_14">12h00 et 14h00</label>
+          <input type="checkbox" id="dispo_12_14" name="disponibilites[]" value="12h00 et 14h00" disabled>
+          <label for="dispo_12_14" class="disabled-label">12h00 et 14h00</label>
         </div>
         <div class="form-group">
-          <input type="checkbox" id="dispo_14_18" name="disponibilites[]" value="14h00 et 18h00">
-          <label for="dispo_14_18">14h00 et 18h00</label>
+          <input type="checkbox" id="dispo_14_18" name="disponibilites[]" value="14h00 et 18h00" disabled>
+          <label for="dispo_14_18" class="disabled-label">14h00 et 18h00</label>
         </div>
         <div class="form-group">
-          <input type="checkbox" id="dispo_apres_18" name="disponibilites[]" value="Après 18h00">
-          <label for="dispo_apres_18">Après 18h00</label>
+          <input type="checkbox" id="dispo_apres_18" name="disponibilites[]" value="Après 18h00" disabled>
+          <label for="dispo_apres_18" class="disabled-label">Après 18h00</label>
         </div>
         <div class="form-group">
-          <input type="checkbox" id="dispo_weekend" name="disponibilites[]" value="Le week-end">
-          <label for="dispo_weekend">Le week-end</label>
+          <input type="checkbox" id="dispo_weekend" name="disponibilites[]" value="Le week-end" disabled>
+          <label for="dispo_weekend" class="disabled-label">Le week-end</label>
         </div>
         <div class="form-group">
-          <input type="checkbox" id="dispo_autre" name="disponibilites[]" value="Autre">
-          <label for="dispo_autre" style="white-space: nowrap;">Autre (précisez)</label>
+          <input type="checkbox" id="dispo_autre" name="disponibilites[]" value="Autre" disabled
+            onchange="toggleInput()">
+          <label for="dispo_autre" class="disabled-label" style="white-space: nowrap;">Autre (précisez)</label>
           <input style="padding: 16px; border: 1px solid black; width: 65%;" type="text" id="autre_precisez"
-            name="autre_precisez">
+            name="autre_precisez" disabled>
         </div>
       </div>
 
-      <!-- Ajout de reCAPTCHA -->
-      <div class="g-recaptcha" data-sitekey="6LcXSVkqAAAAAM3hc8G-ipSAtOfTYiQdZ2-PVx6W"></div>
+
+
+      <div class="g-recaptcha" data-sitekey="6LfholwqAAAAAENb4-8pwdkyX4Ss0L7ASBUlhr8P"></div> <!-- reCAPTCHA -->
 
       <button type="submit">Envoyer</button>
+      <div id="message" style="text-align: center; margin-top: 15px;"></div>
     </form>
   </main>
 
@@ -190,10 +195,155 @@
     <p class="address">2 rue Montaigne, 06400 Cannes</p>
     <div class="credits">
       <p class="credit">©2024 par Lovent'S</p>
-      <a href="#">Politique de confidentialité</a>
-      <a href="#">Mentions légales</a>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
     </div>
   </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+    // Fonction de validation du formulaire
+    function validateForm() {
+        const checkboxes = document.querySelectorAll('input[name="prestation"]');
+        const isChecked = Array.from(checkboxes).some(checkbox => checkbox.checked);
+
+        if (!isChecked) {
+            alert("Veuillez sélectionner au moins une prestation.");
+            return false; // Empêche l'envoi du formulaire
+        }
+
+        return true; // Permet l'envoi du formulaire si au moins une case est cochée
+    }
+
+    // Fonction pour activer/désactiver les champs 'autre' en fonction de la checkbox
+    function toggleInput() {
+        const autreCheckbox = document.getElementById('dispo_autre');
+        const autreInput = document.getElementById('autre_precisez');
+        // Active l'input si la checkbox est cochée, sinon la désactive
+        autreInput.disabled = !autreCheckbox.checked;
+    }
+
+    // Fonction pour gérer l'activation des disponibilités
+    function toggleDisponibilites() {
+        const disponibilitesCheckboxes = document.querySelectorAll('input[name="disponibilites[]"]');
+        const rappelCheckbox = document.getElementById('dispo_rappel');
+
+        disponibilitesCheckboxes.forEach(checkbox => {
+            checkbox.disabled = !rappelCheckbox.checked;
+            checkbox.parentElement.classList.toggle('disabled-checkbox', !rappelCheckbox.checked);
+        });
+    }
+
+    // Mise à jour des styles des prestations
+    function updatePrestationStyles() {
+        const prestationsCheckboxes = document.querySelectorAll('input[name="prestation"]');
+        prestationsCheckboxes.forEach((checkbox) => {
+            const label = checkbox.nextElementSibling; // Obtenir l'étiquette correspondante
+
+            // Si la case est cochée
+            if (checkbox.checked) {
+                // Désactiver les autres cases
+                prestationsCheckboxes.forEach((cb) => {
+                    if (cb !== checkbox) {
+                        cb.disabled = true; // Désactiver les autres cases
+                        cb.parentElement.classList.add('dimmed'); // Ajouter la classe dimmed
+                        cb.checked = false; // Décocher les autres cases
+                    }
+                });
+                label.style.opacity = '1'; // Rendre l'étiquette sélectionnée complètement opaque
+            } else {
+                // Si la case est décochée, réactiver toutes les cases
+                checkbox.disabled = false; // Réactiver la case actuelle
+                label.style.opacity = '0.5'; // Diminuer l'opacité des étiquettes non sélectionnées
+            }
+        });
+
+        // Gestion de la désélection
+        if (Array.from(prestationsCheckboxes).every(cb => !cb.checked)) {
+            prestationsCheckboxes.forEach((cb) => {
+                cb.disabled = false; // Réactiver toutes les cases si aucune n'est cochée
+                cb.parentElement.classList.remove('dimmed'); // Supprimer la classe dimmed
+                cb.nextElementSibling.style.opacity = '1'; // Restaurer l'opacité de toutes les étiquettes
+            });
+        }
+    }
+
+    // Gestion de la soumission du formulaire
+    document.getElementById("contactForm").addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Vérification du reCAPTCHA
+        if (grecaptcha.getResponse() === "") {
+            alert("Veuillez confirmer que vous n'êtes pas un robot.");
+            return;
+        }
+
+        const autreCheckbox = document.getElementById("dispo_autre");
+        const autreInput = document.getElementById("autre_precisez");
+
+        // Vérification si 'autre' est sélectionné et si un input est fourni
+        if (autreCheckbox.checked && !autreInput.value.trim()) {
+            alert("Veuillez préciser votre autre disponibilité.");
+            return;
+        }
+
+        // Validation du formulaire avant l'envoi
+        if (!validateForm()) {
+            return; // Si la validation échoue, ne pas continuer
+        }
+
+        const messageDiv = document.getElementById("message");
+        messageDiv.textContent = "Envoi en cours...";
+        messageDiv.style.color = "#333";
+
+        // Créer une instance de FormData pour récupérer les données du formulaire
+        const formData = new FormData(this);
+
+        // Si la case "Autre" est cochée, ajouter sa valeur à FormData
+        if (autreCheckbox.checked) {
+            formData.append('disponibilites[]', autreInput.value.trim());
+        }
+
+        fetch('send_mail.php', {
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Une erreur est survenue lors de l\'envoi du formulaire.');
+            }
+            return response.text();
+        })
+        .then(data => {
+            messageDiv.textContent = "Le message a été envoyé.";
+            messageDiv.style.color = "green";
+            console.log(data);
+        })
+        .catch(error => {
+            messageDiv.textContent = "Erreur d'envoi du formulaire.";
+            messageDiv.style.color = "red";
+            console.error(error);
+        });
+    });
+
+    // Initialiser l'état des inputs et des checkboxes au chargement
+    const autreCheckbox = document.getElementById('dispo_autre');
+    autreCheckbox.addEventListener('change', toggleInput);
+    toggleInput();
+
+    const rappelCheckbox = document.getElementById('dispo_rappel');
+    rappelCheckbox.addEventListener('change', toggleDisponibilites);
+    toggleDisponibilites();
+
+    const prestationsCheckboxes = document.querySelectorAll('input[name="prestation"]');
+    prestationsCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updatePrestationStyles);
+    });
+});
+
+
+  </script>
+
 </body>
 
 </html>
