@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Contactez notre équipe d'organisateurs de mariage pour une expérience sur mesure. Découvrez nos prestations luxe et planifiez votre mariage idéal.">
+  <meta name="keywords"
+    content="organisateur de mariage, wedding planner, Bordeaux, Nantes, Biarritz, Paris, mariage chic, organisation de mariage, mariage romantique, cérémonie laïque, décoration florale">
+  <meta property="og:title" content="Rendez-vous - Lovents by Life's Events">
+  <meta property="og:description"
+    content="Contactez notre équipe d'organisateurs de mariage pour une expérience sur mesure. Découvrez nos prestations luxe et planifiez votre mariage idéal.">
+  <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <title>Rendez-vous - Organisateur de Mariage Luxe | Lovents</title>
+  <link rel="stylesheet" href="styles/formulaire.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;1,100;1,200;1,300;1,400&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.2.3/css/flag-icons.min.css"
+    integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="icon" href="./img/LOVENTS.png" type="image/png">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+  <header>
+    <h1 class="hidden">Rendez-vous</h1>
+  </header>
+  <section class="sub-header">
+    <figure class="logo">
+      <a href="index.html"><img src="./img/LOVENTS.png" alt="Logo de Life's Events"></a>
+    </figure>
+
+    <ul class="langue">
+      <li>
+        <a href="">Fr <img src="node_modules/flag-icons/flags/1x1/fr.svg" alt="Drapeau Français"></a>
+      </li>
+      <li>
+        <a href="">En <img src="node_modules/flag-icons/flags/1x1/us.svg" alt="Drapeau Américain"></a>
+      </li>
+    </ul>
+  </section>
+
+  <nav>
+    <ul class="menu">
+      <li><a id="accueil-link" href="index.html">ACCUEIL</a></li>
+      <li>
+        <a id="apropos-link" class="cursornormal">À PROPOS</a>
+        <ul class="submenu">
+          <li><a href="nos-agences.html">Nos agences</a></li>
+          <li><a href="notre-histoire.html">Notre histoire</a></li>
+          <li><a href="nos-atouts.html">Nos atouts</a></li>
+        </ul>
+      </li>
+      <li>
+        <a>PRESTATIONS</a>
+        <ul class="submenu">
+          <li><a href="wedding-planner.html">Wedding Planner</a></li>
+          <li><a href="wedding-designer.html">Wedding Designer</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="https://www.instagram.com/lovents_by_lifesevents?igsh=N2xrc3ZrdXRyMDFt" target="_blank">GALERIE</a>
+      </li>
+      <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    const path = window.location.pathname;
+
+    // Vérifier si l'URL correspond à l'une des pages secondaires
+    if (path.includes('notre-equipe.html') || path.includes('notre-histoire.html') || path.includes('nos-atouts.html')) {
+      document.getElementById('apropos-link').classList.add('active');
+    }
+
+    // Vérifier si l'URL correspond à la page d'accueil
+    if (path.includes('index.html')) {
+      document.getElementById('accueil-link').classList.add('active');
+    }
+  </script>
+
+  
+<main>
+  <form id="contactForm" method="POST" action="send_mail.php">
+    <h2>Contactez-nous</h2>
+    <input type="hidden" name="csrf_token" value="<?php echo $_SESSION['csrf_token']; ?>">
+
+    <h3 style="text-align: center;">Veuillez remplir le formulaire ci-dessous.</h3>
+
+    <label for="prenom">Prénom *</label>
+    <input type="text" id="prenom" name="prenom" required title="Veuillez entrer un prénom valide.">
+    
+    <label for="nom">Nom *</label>
+    <input type="text" id="nom" name="nom" required title="Veuillez entrer un nom valide.">
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required title="Veuillez entrer un email valide.">
+
+    <label for="telephone">Téléphone *</label>
+    <input type="tel" id="telephone" name="telephone" required title="Veuillez entrer un numéro de téléphone valide (10 chiffres).">
+    
+    <h2 style="text-align: start; text-transform: initial; font-size: 20px;">Choix de la prestation *</h2>
+    
+    <div class="form-group">
+        <input type="checkbox" id="organisation_totale" name="prestation[]" value="Organisation totale">
+        <label for="organisation_totale">Organisation totale</label>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="organisation_partielle" name="prestation[]" value="Organisation partielle">
+        <label for="organisation_partielle">Organisation partielle</label>
+    </div>
+    <div class="form-group">
+        <input type="checkbox" id="coordination_jour_j" name="prestation[]" value="Coordination du Jour J">
+        <label for="coordination_jour_j">Coordination du Jour J</label>
+    </div>
+
+    <br />
+    <div class="form-group">
+        <input type="checkbox" id="dispo_rappel" name="rappel" value="Être rappelé(e)">
+        <label style="text-transform:initial;font-size: 20px;" for="dispo_rappel">Être rappelé(e)</label>
+    </div>
+
+    <div style="margin-left: 6.5%;">
+        <h3>Vos disponibilités</h3>
+        <div class="form-group">
+            <input type="checkbox" id="dispo_10_12" name="disponibilites[]" value="10h00 et 12h00" disabled>
+            <label for="dispo_10_12" class="disabled-label">10h00 et 12h00</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="dispo_12_14" name="disponibilites[]" value="12h00 et 14h00" disabled>
+            <label for="dispo_12_14" class="disabled-label">12h00 et 14h00</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="dispo_14_18" name="disponibilites[]" value="14h00 et 18h00" disabled>
+            <label for="dispo_14_18" class="disabled-label">14h00 et 18h00</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="dispo_apres_18" name="disponibilites[]" value="Après 18h00" disabled>
+            <label for="dispo_apres_18" class="disabled-label">Après 18h00</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="dispo_weekend" name="disponibilites[]" value="Le week-end" disabled>
+            <label for="dispo_weekend" class="disabled-label">Le week-end</label>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="dispo_autre" name="disponibilites[]" value="Autre" disabled>
+            <label for="dispo_autre" class="disabled-label" style="white-space: nowrap;">Autre (précisez)</label>
+            <input style="padding: 16px; border: 1px solid black; width: 65%;" type="text" id="autre_precisez" name="autre_precisez" disabled>
+        </div>
+    </div>
+
+    <div class="g-recaptcha" data-sitekey="6LfholwqAAAAAENb4-8pwdkyX4Ss0L7ASBUlhr8P"></div>
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+    <button type="submit">Envoyer</button>
+
+    <!-- Loader au-dessous du bouton "Envoyer" -->
+    <div id="loader">Envoi en cours...</div>
+
+    <!-- Message de succès en dessous du bouton "Envoyer" -->
+    <div id="successMessage"></div>
+    
+</form>
+
+</main>
+
+
+  <footer>
+    <figure>
+      <img src="./img/LOVENTS BLANC.png" alt="Logo de Life's Events">
+    </figure>
+    <ul class="contact">
+      <li>
+        <a href="tel:+330648480382">+33 6 48 48 03 82</a>
+      </li>
+
+      <li><a href="mailto:info@lifeevents.fr">info@lifeevents.fr</a>
+      </li>
+    </ul>
+    <ul class="socialmedia">
+      <li>
+        <a href="https://www.instagram.com/lovents_by_lifesevents?igsh=N2xrc3ZrdXRyMDFt" target="_blank"><i
+            class="fa-brands fa-instagram"></i></a>
+      </li>
+      <li>
+        <a href="https://www.tiktok.com/@lovents_by_lifesevents?_t=8qJgmagETCK&_r=1" target="_blank"><i
+            class="fa-brands fa-tiktok"></i></a>
+      </li>
+    </ul>
+    <p class="address">2 rue Montaigne, 06400 Cannes</p>
+    <div class="credits">
+      <p class="credit">©2024 par Lovent'S</p>
+      <a href="politique-de-confidentialite.html">Politique de confidentialité</a>
+      <a href="mentions-legales.html">Mentions légales</a>
+    </div>
+  </footer>
+
+  <script src="JS/formulaire.js"></script>
+
+</body>
+
+</html>

@@ -16,6 +16,7 @@ $mail = new PHPMailer(true);
 // Chargement des variables d'environnement
 $mail->Username = $_ENV['MAIL_USERNAME'];
 $mail->Password = $_ENV['MAIL_PASSWORD'];
+
 $secretKey = '6LfholwqAAAAAFiqk0nQRJWbCcKVUZj8akTeaBqZ'; // Votre clé secrète reCAPTCHA
 
 // Démarrer la session
@@ -25,7 +26,7 @@ session_start();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifiez que tous les champs requis sont présents
     if (isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['telephone'], $_POST['service'], $_POST['g-recaptcha-response'])) {
-        
+
         // Récupération et validation des données du formulaire
         $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -38,12 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo 'Le prénom et le nom doivent contenir moins de 50 caractères.';
             exit;
         }
-
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo 'Adresse e-mail invalide.';
             exit;
         }
-
         if (!preg_match('/^\+?[0-9]{10,15}$/', $telephone)) {
             echo 'Numéro de téléphone invalide.';
             exit;
@@ -53,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $captcha = $_POST['g-recaptcha-response'];
         $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}");
         $responseKeys = json_decode($response, true);
-        
+
         if (intval($responseKeys["success"]) !== 1) {
             echo 'Veuillez prouver que vous n\'êtes pas un robot.';
             exit;
@@ -72,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // Définir l'adresse de l'expéditeur
             $mail->setFrom($_ENV['MAIL_USERNAME'], 'Life\'s Events');
             $mail->addAddress($_ENV['MAIL_USERNAME']); // Adresse de réception des emails
-            
+
             // Ajouter un reply-to
             $mail->addReplyTo($email, htmlspecialchars($prenom . ' ' . $nom));
 
@@ -108,11 +107,11 @@ function buildEmailBody($prenom, $nom, $email, $telephone, $service) {
         <p><strong>Email:</strong> %s</p>
         <p><strong>Téléphone:</strong> %s</p>
         <p><strong>Service souhaité:</strong> %s</p>",
-        htmlspecialchars($prenom),  
+        htmlspecialchars($prenom),
         htmlspecialchars($nom),
         htmlspecialchars($email),
         htmlspecialchars($telephone),
-        htmlspecialchars($service)
+        html_entity_decode($service)
     );
 }
 
@@ -126,7 +125,7 @@ function buildEmailAltBody($prenom, $nom, $email, $telephone, $service) {
         htmlspecialchars($nom),
         htmlspecialchars($email),
         htmlspecialchars($telephone),
-        htmlspecialchars($service)
+        html_entity_decode($service)
     );
 }
 ?>

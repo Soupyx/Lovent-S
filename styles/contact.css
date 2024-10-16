@@ -309,7 +309,6 @@ label {
 .sub-header figure img {
   width: 10rem;
 }
-
 footer {
   display: block;
   background-color: #d7b7b4;
@@ -401,6 +400,8 @@ footer .credit, footer .credits a,footer .credits p {
   font-weight: 300;
   font-size: 1.2rem;
 }
+
+
 
 
 

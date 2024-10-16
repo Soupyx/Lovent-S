@@ -88,6 +88,54 @@
     </ul>
   </nav>
 
+  <div class="burger-container">
+    <div class="burger-icon" id="burger-icon">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+</div>
+
+<nav class="menu-burger" id="menu-burger">
+    <div class="close-icon" id="close-icon">&times;</div>
+    <ul class="burger-menu">
+        <li><a href="index.html">ACCUEIL</a></li>
+        <li>
+            <a href="#">À PROPOS</a>
+            <ul class="submenu-burger">
+                <li><a href="nos-agences.html">Nos agences</a></li>
+                <li><a href="notre-histoire.html">Notre histoire</a></li>
+                <li><a href="nos-atouts.html">Nos atouts</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">PRESTATIONS</a>
+            <ul class="submenu-burger">
+                <li><a href="wedding-planner.html">Wedding Planner</a></li>
+                <li><a href="wedding-designer.html">Wedding Designer</a></li>
+            </ul>
+        </li>
+        <li><a href="https://www.instagram.com/lovents_by_lifesevents" target="_blank">GALERIE</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+</nav>
+
+<script>
+    document.getElementById('burger-icon').addEventListener('click', function () {
+        const burgerMenu = document.getElementById('menu-burger');
+        // Afficher le menu burger
+        burgerMenu.style.display = "flex"; // Utiliser flex pour le centrage
+    });
+
+    // Écouter les clics sur l'icône de fermeture
+    document.getElementById('close-icon').addEventListener('click', function () {
+        const burgerMenu = document.getElementById('menu-burger');
+        // Masquer le menu burger
+        burgerMenu.style.display = "none";
+    });
+</script>
+
+
   <div class="magiques">
     <h3>CRÉATEURS DE SOUVENIRS INOUBLIABLES</h3>
     <p>Lovent'S by Life'S Events, agence de Wedding Planner fondée en 2024 par Sandie Paradis, incarne notre volonté

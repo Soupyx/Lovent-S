@@ -1,88 +1,57 @@
 <?php
-
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-// Affichage des erreurs pour le débogage
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
+require 'vendor/autoload.php'; // Inclure Composer
 
-// Chargement de Composer et des dépendances
-require 'vendor/autoload.php';
-
-// Chargement des variables d'environnement
+// Charger le fichier .env
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+// Configurer l'affichage des erreurs
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL & ~E_NOTICE); // Ignore les notices
+
+// Démarrer la session uniquement si elle n'est pas déjà active
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 $mail = new PHPMailer(true);
 
-// Clé secrète reCAPTCHA
-$secretKey = '6LfholwqAAAAAFiqk0nQRJWbCcKVUZj8akTeaBqZ'; // Remplacez par votre propre clé
-
-// Démarrer la session
-session_start();
+// Chargement des variables d'environnement
+$mail->Username = $_ENV['MAIL_USERNAME'];
+$mail->Password = $_ENV['MAIL_PASSWORD'];
 
 // Vérifiez si la méthode de requête est POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Vérifiez que tous les champs requis sont présents
-    if (isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['telephone'], $_POST['g-recaptcha-response'])) {
+    if (isset($_POST['prenom'], $_POST['nom'], $_POST['email'], $_POST['telephone'])) {
+
         // Récupération et validation des données du formulaire
         $prenom = filter_input(INPUT_POST, 'prenom', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $nom = filter_input(INPUT_POST, 'nom', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $telephone = filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+        $prestations = isset($_POST['prestation']) ? $_POST['prestation'] : [];
+        $rappel = isset($_POST['rappel']) ? 'Oui' : 'Non';
+        $disponibilites = isset($_POST['disponibilites']) ? $_POST['disponibilites'] : [];
+        $autre_precisez = isset($_POST['autre_precisez']) ? filter_input(INPUT_POST, 'autre_precisez', FILTER_SANITIZE_FULL_SPECIAL_CHARS) : '';
 
         // Validation des entrées
         if (strlen($prenom) > 50 || strlen($nom) > 50) {
             echo 'Le prénom et le nom doivent contenir moins de 50 caractères.';
             exit;
         }
-
         if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             echo 'Adresse e-mail invalide.';
             exit;
         }
-
         if (!preg_match('/^\+?[0-9]{10,15}$/', $telephone)) {
             echo 'Numéro de téléphone invalide.';
             exit;
         }
-
-        // Vérification du reCAPTCHA
-        $captcha = $_POST['g-recaptcha-response'];
-        $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret={$secretKey}&response={$captcha}");
-        $responseKeys = json_decode($response, true);
-
-        if (intval($responseKeys["success"]) !== 1) {
-            echo 'Veuillez prouver que vous n\'êtes pas un robot.';
-            echo ' Détails : ' . implode(', ', $responseKeys['error-codes']); // Afficher les erreurs
-            exit;
-        }
-
-        // Vérifiez que les checkboxes sont valides (si c'est applicable)
-        $prestations = isset($_POST['prestation']) && is_array($_POST['prestation']) ? array_map('htmlspecialchars', $_POST['prestation']) : [];
-
-        $disponibilites = isset($_POST['disponibilites']) ? array_map('htmlspecialchars', $_POST['disponibilites']) : [];
-
-        // Vérifiez si "Autre" est sélectionné
-        if (in_array('Autre', $disponibilites)) {
-            if (isset($_POST['autre_precisez']) && !empty(trim($_POST['autre_precisez']))) {
-                $autrePrecisez = filter_input(INPUT_POST, 'autre_precisez', FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-                $disponibilites[] = $autrePrecisez; // Ajoute la valeur précisée
-            } else {
-                echo 'Veuillez préciser votre disponibilité pour "Autre".';
-                exit;
-            }
-        }
-
-        // Supprimer "Autre" de la liste des disponibilités si elle est présente
-        $disponibilites = array_filter($disponibilites, function ($value) {
-            return $value !== 'Autre';
-        });
-
-        // Enlever les doublons dans les disponibilités
-        $disponibilites = array_unique($disponibilites);
 
         // Configuration de PHPMailer
         try {
@@ -91,31 +60,81 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $mail->SMTPAuth = true;
             $mail->Username = $_ENV['MAIL_USERNAME']; // Utiliser la variable d'environnement
             $mail->Password = $_ENV['MAIL_PASSWORD']; // Utiliser la variable d'environnement
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Sécurisation
-            $mail->Port = 587; // Port SMTP
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
 
-            // Destinataire
-            $mail->setFrom($_ENV['MAIL_USERNAME'], 'Lovents'); // Adresse de l'expéditeur
-            $mail->addAddress($_ENV['MAIL_TO']); // Remplacez par l'adresse du destinataire
+            // Définir l'adresse de l'expéditeur
+            $mail->setFrom($_ENV['MAIL_USERNAME'], 'Life\'s Events');
+            $mail->addAddress($_ENV['MAIL_USERNAME']); // Adresse de réception des emails
 
-            // Contenu de l'e-mail
-            $mail->isHTML(true); // Format HTML
-            $mail->Subject = 'Nouvelle demande de contact';
-            $mail->Body = "Vous avez reçu un nouveau message de <b>{$prenom} {$nom}</b>.<br>
-                           <b>Email:</b> {$email}<br>
-                           <b>Téléphone:</b> {$telephone}<br>
-                           <b>Prestations choisies:</b> " . implode(', ', $prestations) . "<br>
-                           <b>Disponibilités:</b> " . implode(', ', $disponibilites);
+            // Ajouter un reply-to
+            $mail->addReplyTo($email, htmlspecialchars($prenom . ' ' . $nom));
 
-            // Envoi de l'e-mail
+            // Contenu du mail
+            $mail->isHTML(true);
+            $mail->Subject = 'Nouveau message de contact';
+            $mail->Body = buildEmailBody($prenom, $nom, $email, $telephone, $prestations, $rappel, $disponibilites, $autre_precisez);
+            $mail->AltBody = buildEmailAltBody($prenom, $nom, $email, $telephone, $prestations, $rappel, $disponibilites, $autre_precisez);
+
             $mail->send();
-            echo 'Le message a été envoyé.';
+            echo 'Votre message a été envoyé avec succès.'; // Message de succès
         } catch (Exception $e) {
-            echo "Le message n'a pas pu être envoyé. Erreur : {$mail->ErrorInfo}";
+            // Log the error without exposing sensitive information
+            error_log("Erreur lors de l'envoi de l'email: {$mail->ErrorInfo}");
+            echo 'Une erreur s\'est produite lors de l\'envoi de votre message. Veuillez réessayer plus tard.'; // Message d'erreur
         }
     } else {
-        echo 'Veuillez remplir tous les champs requis.';
+        echo 'Tous les champs sont obligatoires.'; // Message si des champs sont manquants
     }
 } else {
-    echo 'Méthode de requête non valide.';
+    http_response_code(405);
+    echo 'Méthode non autorisée.'; // Message si la méthode n'est pas POST
+}
+
+/**
+ * Fonction pour construire le corps de l'email
+ */
+function buildEmailBody($prenom, $nom, $email, $telephone, $prestations, $rappel, $disponibilites, $autre_precisez) {
+    $prestations_list = implode(', ', $prestations);
+    $disponibilites_list = implode(', ', $disponibilites);
+    
+    return sprintf(
+        "<h1>Nouveau message de contact</h1>
+        <p><strong>Prénom:</strong> %s</p>
+        <p><strong>Nom:</strong> %s</p>
+        <p><strong>Email:</strong> %s</p>
+        <p><strong>Téléphone:</strong> %s</p>
+        <p><strong>Prestations souhaitées:</strong> %s</p>
+        <p><strong>Être rappelé:</strong> %s</p>
+        <p><strong>Disponibilités:</strong> %s</p>
+        <p><strong>Autre précision:</strong> %s</p>",
+        htmlspecialchars($prenom),
+        htmlspecialchars($nom),
+        htmlspecialchars($email),
+        htmlspecialchars($telephone),
+        htmlspecialchars($prestations_list),
+        htmlspecialchars($rappel),
+        htmlspecialchars($disponibilites_list),
+        htmlspecialchars($autre_precisez)
+    );
+}
+
+/**
+ * Fonction pour construire le corps alternatif de l'email
+ */
+function buildEmailAltBody($prenom, $nom, $email, $telephone, $prestations, $rappel, $disponibilites, $autre_precisez) {
+    $prestations_list = implode(', ', $prestations);
+    $disponibilites_list = implode(', ', $disponibilites);
+
+    return sprintf(
+        "Prénom: %s\nNom: %s\nEmail: %s\nTéléphone: %s\nPrestations souhaitées: %s\nÊtre rappelé: %s\nDisponibilités: %s\nAutre précision: %s",
+        htmlspecialchars($prenom),
+        htmlspecialchars($nom),
+        htmlspecialchars($email),
+        htmlspecialchars($telephone),
+        htmlspecialchars($prestations_list),
+        htmlspecialchars($rappel),
+        htmlspecialchars($disponibilites_list),
+        htmlspecialchars($autre_precisez)
+    );
 }

@@ -1,0 +1,393 @@
+@font-face {
+  font-family: "amalfi";
+  src: url('../font/amalfi_coast.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --black: #101010;
+  --white: #f2f2f2;
+  --main: #d7b7b4;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  list-style: none;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: var(--black);
+}
+
+header h1 {
+  display: none;
+}
+
+.sub-header {
+  width: 55%;
+  margin: 0 auto;
+}
+
+.sub-header figure {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+.sub-header figure img {
+  width: 10rem;
+}
+
+.langue {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.langue img {
+  width: 20px;
+}
+
+.langue li:first-child {
+  padding-right: 20px;
+  border-right: 1px solid var(--black);
+}
+
+.langue li a {
+  text-transform: uppercase;
+  font-size: 1.4rem;
+}
+
+nav {
+  position: relative;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  color: var(--black);
+}
+
+nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 420px;
+  width: 1070px;
+  height: 1px;
+  background-color: var(--black);
+  z-index: 2;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 100px;
+  padding: 6px;
+  margin-top: 1%;
+}
+
+nav .menu li a {
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  color: var(--black);
+  font-weight: 200;
+  text-decoration: none;
+  font-size: 1.5rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+/* Les items de menu, sauf le dernier, auront un séparateur */
+nav ul li:not(:last-child) {
+  position: relative;
+}
+
+/* Ajouter un séparateur aux items principaux, sauf les sous-menus */
+nav .menu li:not(:last-child):not(.submenu li)::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -50px;
+  width: 1px;
+  height: 30px;
+  background-color: var(--black);
+  z-index: 2;
+}
+
+nav .menu li .submenu {
+  position: absolute;
+  top: 100%;
+  opacity: 0;
+  z-index: -10;
+  transition: all 0.2s ease;
+  display: block;
+}
+
+nav .menu li .submenu:first-child {
+  left: -90%!important;
+}
+
+nav .menu li .submenu:last-child {
+  left: -20%;
+}
+
+nav .menu li:hover .submenu {
+  opacity: 1;
+  z-index: 10;
+  transition: all 0.2s ease;
+  background: white;
+}
+
+nav .menu li .submenu {
+  background-color: var(--white);
+  padding: 10px;
+  padding-left: 30px;
+  width: 300px;
+}
+
+nav .menu li .submenu li,
+nav .menu li .submenu li a {
+  font-size: 1.1rem;
+  text-transform: none;
+  padding: 10px;
+  letter-spacing: 0;
+}
+
+nav .menu li .submenu li::before {
+  content: "-";
+  margin-right: 10px;
+}
+
+.active {
+  font-weight: 400;
+}
+
+/* Style du formulaire et fond du main */
+main {
+  background-image: url("../img/BackgroundForm_image.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px 0;
+  margin-top: 2%;
+}
+
+form {
+  width: 40%;
+  margin: 0 auto;
+  padding: 2% 3%;
+  background-color: white;
+  text-align: left;
+  font-weight: 200;
+}
+
+h1, h2 {
+  text-align: center;
+}
+
+h2 {
+  font-size: 44px;
+  font-weight: 200;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+
+h3 {
+  font-size: 24px;
+  margin-top: 0;
+  font-weight: 200;
+  margin-bottom: 2%;
+}
+
+/* Style des labels et inputs */
+label {
+  display: block;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"] {
+  width: 100%;
+  padding: 15px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+}
+
+/* Style pour centrer le loader */
+#loader {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #333;
+}
+
+/* Style pour le message de succès */
+#successMessage {
+  display: none;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 18px;
+  color: green;
+}
+
+/* Style des checkboxes */
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 5px;
+}
+
+.form-group input[type="checkbox"] {
+  width: 25px; /* Largeur */
+  height: 25px; /* Hauteur */
+  cursor: pointer; /* Changer le curseur en pointeur */
+  border: 2px solid black; /* Bordure noire très fine */
+  border-radius: 0; /* Pas de coins arrondis */
+  appearance: none; /* Supprime le style par défaut du checkbox */
+  outline: none; /* Supprime l'effet de contour par défaut */
+}
+
+.form-group input[type="checkbox"]:checked {
+  background-color: #007BFF; /* Couleur de fond lorsqu'il est coché */
+  border: 2px solid #0056b3; /* Bordure plus sombre pour le contraste */
+  position: relative; /* Positionnement pour le pseudo-élément */
+}
+
+/* Style de la coche qui apparaîtra sur le checkbox lorsqu'il est coché */
+.form-group input[type="checkbox"]:checked::after {
+  content: "✓"; /* Contenu de la coche */
+  position: absolute; /* Positionnement à l'intérieur du checkbox */
+  left: 4px; /* Ajustement de la position de la coche */
+  top: 50%; /* Centrer verticalement */
+  transform: translateY(-50%); /* Ajustement pour centrer parfaitement */
+  color: white; /* Couleur de la coche */
+  font-size: 18px; /* Taille de la coche */
+  font-weight: bold; /* Gras pour une meilleure visibilité */
+}
+
+/* Style pour les éléments désactivés */
+input[type="checkbox"]:disabled,
+input[type="text"]:disabled,
+input[type="email"]:disabled,
+input[type="tel"]:disabled,
+select:disabled {
+    opacity: 0.5; /* Réduit l'opacité à 50% pour les éléments désactivés */
+    cursor: not-allowed; /* Change le curseur pour indiquer que l'élément est désactivé */
+}
+
+/* Style pour les éléments activés */
+input[type="checkbox"]:enabled,
+input[type="text"]:enabled,
+input[type="email"]:enabled,
+input[type="tel"]:enabled,
+select:enabled {
+    opacity: 1; /* Opacité normale pour les éléments activés */
+    cursor: pointer; /* Change le curseur pour indiquer que l'élément est interactif */
+}
+
+
+
+
+/* Champ texte pour "Autre (précisez)" */
+#autre_precisez {
+  margin-top: 5px;
+  padding: 8px;
+  width: 90%;
+  box-sizing: border-box;
+}
+
+/* Bouton d'envoi */
+button[type="submit"] {
+  background-color: #403c3c;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  margin-top: 5%;
+}
+
+footer {
+  display: flex;
+  flex-direction: column; /* Aligner les éléments en colonne */
+  align-items: center; /* Centrer horizontalement */
+  background-color: #d7b7b4;
+  color: var(--white);
+  padding: 20px;
+}
+
+footer figure {
+  display: flex;
+  justify-content: center;
+}
+
+footer figure img {
+  width: 40%;
+}
+
+footer .contact {
+  width: 80%; /* Conserver une largeur définie pour le contenu */
+  text-align: center;
+  margin-top: 2%;
+}
+
+footer .contact a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 1.7rem;
+}
+
+footer .socialmedia {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  gap: 40px;
+}
+
+footer .socialmedia a {
+  background-color: white;
+  padding: 10px 15px;
+  border-radius: 50%;
+  font-size: 1.7rem;
+  color: var(--main);
+}
+
+footer .address {
+  text-align: center; /* Aligner l'adresse au centre */
+  font-size: 1.5rem;
+  color: white;
+}
+
+footer .credits {
+  display: flex;
+  justify-content: center; /* Centrer le contenu des crédits */
+  align-items: center;
+  padding: 20px;
+  gap: 100px;
+}
+
+footer .credit,
+footer .credits a,
+footer .credits p {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 1.2rem;
+}

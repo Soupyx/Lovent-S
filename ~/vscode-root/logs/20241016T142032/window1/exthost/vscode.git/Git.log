@@ -1,0 +1,170 @@
+2024-10-16 14:20:33.607 [info] [main] Log level: Info
+2024-10-16 14:20:33.607 [info] [main] Validating found git in: "git"
+2024-10-16 14:20:33.607 [info] [main] Using git "2.47.0" from "git"
+2024-10-16 14:20:33.607 [info] [Model][doInitialScan] Initial repository scan started
+2024-10-16 14:20:33.607 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-10-16 14:20:59.765 [info] [main] Log level: Info
+2024-10-16 14:20:59.765 [info] [main] Validating found git in: "git"
+2024-10-16 14:20:59.765 [info] [main] Using git "2.47.0" from "git"
+2024-10-16 14:20:59.765 [info] [Model][doInitialScan] Initial repository scan started
+2024-10-16 14:20:59.765 [info] > git rev-parse --show-toplevel [3ms]
+2024-10-16 14:20:59.769 [info] > git rev-parse --git-dir --git-common-dir [1ms]
+2024-10-16 14:20:59.774 [info] [Model][openRepository] Opened repository: /var/www/html/Lovent-S
+2024-10-16 14:20:59.781 [info] > git rev-parse --show-toplevel [1ms]
+2024-10-16 14:20:59.781 [info] > git config --get commit.template [3ms]
+2024-10-16 14:20:59.797 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [10ms]
+2024-10-16 14:20:59.797 [info] > git rev-parse --show-toplevel [13ms]
+2024-10-16 14:20:59.806 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:20:59.808 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:20:59.814 [info] > git rev-parse --show-toplevel [6ms]
+2024-10-16 14:20:59.817 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+2024-10-16 14:20:59.818 [info] > git rev-parse --show-toplevel [1ms]
+2024-10-16 14:20:59.820 [info] > git rev-parse --show-toplevel [0ms]
+2024-10-16 14:20:59.823 [info] > git rev-parse --show-toplevel [1ms]
+2024-10-16 14:20:59.825 [info] > git rev-parse --show-toplevel [0ms]
+2024-10-16 14:20:59.827 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2024-10-16 14:20:59.843 [info] > git status -z -uall [32ms]
+2024-10-16 14:20:59.862 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [7ms]
+2024-10-16 14:20:59.867 [info] > git config --local branch.master.vscode-merge-base [2ms]
+2024-10-16 14:20:59.869 [info] > git config --get commit.template [10ms]
+2024-10-16 14:20:59.870 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/master refs/remotes/origin/master [1ms]
+2024-10-16 14:20:59.937 [info] > git merge-base refs/heads/master refs/remotes/origin/master [63ms]
+2024-10-16 14:20:59.951 [info] > git diff --name-status -z --diff-filter=ADMR c6eef0c575086f1fdff380bc9e5ec097e6babb76...refs/remotes/origin/master [12ms]
+2024-10-16 14:20:59.951 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [15ms]
+2024-10-16 14:20:59.954 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:20:59.955 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:20:59.961 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:20:59.989 [info] > git status -z -uall [32ms]
+2024-10-16 14:21:00.302 [info] > git check-ignore -v -z --stdin [3ms]
+2024-10-16 14:21:02.232 [info] > git config --get commit.template [11ms]
+2024-10-16 14:21:02.235 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [4ms]
+2024-10-16 14:21:02.242 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:21:02.244 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:21:02.254 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:21:02.285 [info] > git status -z -uall [37ms]
+2024-10-16 14:21:04.652 [info] > git show --textconv :index.html [4ms]
+2024-10-16 14:21:04.652 [info] > git ls-files --stage -- /var/www/html/Lovent-S/index.html [1ms]
+2024-10-16 14:21:04.656 [info] > git cat-file -s b0f2919be57732bcd67720b1257d8503fdfcf003 [1ms]
+2024-10-16 14:21:07.573 [info] > git config --get commit.template [8ms]
+2024-10-16 14:21:07.574 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2024-10-16 14:21:07.584 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:21:07.587 [info] > git rev-parse refs/remotes/origin/master [3ms]
+2024-10-16 14:21:07.605 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:21:07.642 [info] > git status -z -uall [46ms]
+2024-10-16 14:27:11.139 [info] > git config --get commit.template [4ms]
+2024-10-16 14:27:11.139 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-10-16 14:27:11.142 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:27:11.143 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:27:11.149 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [0ms]
+2024-10-16 14:27:11.176 [info] > git status -z -uall [31ms]
+2024-10-16 14:55:11.618 [info] > git config --get commit.template [12ms]
+2024-10-16 14:55:11.618 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2024-10-16 14:55:11.624 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:55:11.626 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:55:11.636 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:55:11.664 [info] > git status -z -uall [34ms]
+2024-10-16 14:55:13.632 [info] > git show --textconv :politique-de-confidentialite.html [6ms]
+2024-10-16 14:55:13.633 [info] > git ls-files --stage -- /var/www/html/Lovent-S/politique-de-confidentialite.html [1ms]
+2024-10-16 14:55:13.637 [info] > git cat-file -s 84d5a648308795b0c84b07be957bc2742eac720f [1ms]
+2024-10-16 14:55:26.996 [info] > git config --get commit.template [6ms]
+2024-10-16 14:55:26.997 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [2ms]
+2024-10-16 14:55:27.004 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:55:27.005 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:55:27.011 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:55:27.040 [info] > git status -z -uall [32ms]
+2024-10-16 14:55:44.689 [info] > git config --get commit.template [9ms]
+2024-10-16 14:55:44.690 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [2ms]
+2024-10-16 14:55:44.694 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:55:44.695 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:55:44.701 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:55:44.731 [info] > git status -z -uall [33ms]
+2024-10-16 14:55:49.757 [info] > git config --get commit.template [9ms]
+2024-10-16 14:55:49.757 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-10-16 14:55:49.764 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:55:49.766 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:55:49.784 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:55:49.813 [info] > git status -z -uall [39ms]
+2024-10-16 14:55:54.840 [info] > git config --get commit.template [12ms]
+2024-10-16 14:55:54.842 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [4ms]
+2024-10-16 14:55:54.850 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:55:54.852 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:55:54.869 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:55:54.900 [info] > git status -z -uall [41ms]
+2024-10-16 14:55:59.925 [info] > git config --get commit.template [12ms]
+2024-10-16 14:55:59.928 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [4ms]
+2024-10-16 14:55:59.937 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:55:59.940 [info] > git rev-parse refs/remotes/origin/master [3ms]
+2024-10-16 14:55:59.960 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:55:59.990 [info] > git status -z -uall [41ms]
+2024-10-16 14:56:05.012 [info] > git config --get commit.template [8ms]
+2024-10-16 14:56:05.014 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2024-10-16 14:56:05.021 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:56:05.024 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:56:05.037 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:56:05.064 [info] > git status -z -uall [34ms]
+2024-10-16 14:56:10.092 [info] > git config --get commit.template [11ms]
+2024-10-16 14:56:10.094 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2024-10-16 14:56:10.102 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:56:10.104 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:56:10.120 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [3ms]
+2024-10-16 14:56:10.151 [info] > git status -z -uall [40ms]
+2024-10-16 14:56:15.179 [info] > git config --get commit.template [9ms]
+2024-10-16 14:56:15.181 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [4ms]
+2024-10-16 14:56:15.189 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:56:15.190 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:56:15.203 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:56:15.230 [info] > git status -z -uall [35ms]
+2024-10-16 14:56:20.256 [info] > git config --get commit.template [8ms]
+2024-10-16 14:56:20.257 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-10-16 14:56:20.264 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:56:20.266 [info] > git rev-parse refs/remotes/origin/master [2ms]
+2024-10-16 14:56:20.278 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [0ms]
+2024-10-16 14:56:20.304 [info] > git status -z -uall [30ms]
+2024-10-16 14:56:28.472 [info] > git config --get commit.template [3ms]
+2024-10-16 14:56:28.473 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-10-16 14:56:28.475 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:56:28.476 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:56:28.482 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:56:28.508 [info] > git status -z -uall [30ms]
+2024-10-16 14:56:41.271 [info] > git config --get commit.template [11ms]
+2024-10-16 14:56:41.273 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [4ms]
+2024-10-16 14:56:41.277 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:56:41.277 [info] > git rev-parse refs/remotes/origin/master [0ms]
+2024-10-16 14:56:41.286 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:56:41.313 [info] > git status -z -uall [33ms]
+2024-10-16 14:57:16.333 [info] > git config --get commit.template [3ms]
+2024-10-16 14:57:16.333 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-10-16 14:57:16.335 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:57:16.336 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:57:16.342 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:57:16.369 [info] > git status -z -uall [31ms]
+2024-10-16 14:57:16.722 [info] > git show --textconv :mentions-legales.html [8ms]
+2024-10-16 14:57:16.724 [info] > git ls-files --stage -- /var/www/html/Lovent-S/mentions-legales.html [3ms]
+2024-10-16 14:57:16.734 [info] > git cat-file -s 3cf44d57dcbdd230cf4b62c83eedf9b3ad8e571a [2ms]
+2024-10-16 14:57:24.990 [info] > git config --get commit.template [8ms]
+2024-10-16 14:57:24.990 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [1ms]
+2024-10-16 14:57:24.993 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:57:24.994 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:57:25.006 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [0ms]
+2024-10-16 14:57:25.033 [info] > git status -z -uall [33ms]
+2024-10-16 14:57:30.064 [info] > git config --get commit.template [13ms]
+2024-10-16 14:57:30.072 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [10ms]
+2024-10-16 14:57:30.076 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:57:30.077 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:57:30.086 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:57:30.116 [info] > git status -z -uall [35ms]
+2024-10-16 14:58:32.153 [info] > git config --get commit.template [8ms]
+2024-10-16 14:58:32.155 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [2ms]
+2024-10-16 14:58:32.158 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:58:32.159 [info] > git rev-parse refs/remotes/origin/master [1ms]
+2024-10-16 14:58:32.167 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [1ms]
+2024-10-16 14:58:32.194 [info] > git status -z -uall [32ms]
+2024-10-16 14:58:37.216 [info] > git config --get commit.template [9ms]
+2024-10-16 14:58:37.218 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/master refs/remotes/master [3ms]
+2024-10-16 14:58:37.228 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/var/www/html/Lovent-S/.git/refs/remotes/origin/master'
+2024-10-16 14:58:37.231 [info] > git rev-parse refs/remotes/origin/master [3ms]
+2024-10-16 14:58:37.250 [info] > git for-each-ref --sort -committerdate --format %(refname) %(objectname) %(*objectname) [2ms]
+2024-10-16 14:58:37.276 [info] > git status -z -uall [35ms]
+2024-10-16 14:58:37.850 [info] > git ls-files --stage -- /var/www/html/Lovent-S/mentions-legales.html [4ms]
+2024-10-16 14:58:37.862 [info] > git cat-file -s 3cf44d57dcbdd230cf4b62c83eedf9b3ad8e571a [2ms]
+2024-10-16 14:58:37.875 [info] > git show --textconv :mentions-legales.html [2ms]
